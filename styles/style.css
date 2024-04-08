@@ -1,55 +1,177 @@
+:root {
+
+}
+
+/* Typography */
+
+.left-align {
+  text-align: left;
+}
+
+/* Buttons */
+
+#start-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: #333333;
+  font-size: 18px;
+  border-radius: 0px;
+  width: 200px;
+  height: 40px;
+  font-weight: bold;
+  border: 2px solid #333333;
+  transition: 0.3s;
+  box-shadow: 5px 5px 0px 0px rgba(51, 51, 51, 1);
+  background-color: #ffffff;
+}
+
+#start-button:hover {
+  box-shadow: 0 0 #333;
+  color: #fff;
+  background-color: #333;
+}
+
+
+/* // Foundations */
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* // Forces any element to inherit border-box sizing */
+
+html {
+  box-sizing: border-box;
+  /* // Establishes consistent box-sizing model across all elements
+  // i.e. including padding and border within an elements total width and height */
+  width: 100%;
+  height: 100%;
+  /* // Ensures viewport is filled and helps to prevent unwanted margins or padding */
+  font-size: 60%;
+  /* // Scales root font size against browser default */
+}
+
+
 body {
   padding: 0;
   text-align: center;
+  width: 100vw;
+  height: 100vh; 
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  overflow-x: hidden;
 }
 
-#game-splash {
-  padding: 20px 0px;
-}
-
-#game-player-name {
-    display: none;
-    padding: 20px 0px;
-}
-
-#game-start {
-    display: none;
-    padding: 20px 0px;
-}
+/* Game container */
 
 #game-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 700px;
+  height: 700px;
+  margin: 10vh auto 0;
+  border: 1px solid;
+}
+
+#game-container h1 {
+  text-align: left;
+}
+
+/* Step 1 - Game Splash */
+
+#game-splash {
+  display: none;
+}
+
+/* Step 2 - Game Player Name */
+
+#game-player-name {
+  display: none;
+}
+
+input {
+  width: 10vw;
+  padding: 12px 20px;
+}
+
+/* Step 3 - Game Start */
+
+
+#game-start {
+  display: none;
+}
+
+#game-start p {
+  max-width: 16.66vw;
+}
+
+/* Step 4 - Game Screen */
+
+#game-screen {
+  /* display: none; */
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-image: url(/images/background.png);
+  background-size: cover;
+  width: 700px;
+  height: 700px;
+}
+
+/* Step 5 - Game Over */
+
+#game-over {
+  display: none;
+}
+
+
+
+
+
+
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.no-flex-grow {
+  flex-grow: 0;
+}
+
+.flex-shrink {
+
+}
+
+
+/* #game-container {
   display: none;
   width: 100vw;
   padding: 20px 0px;
   justify-content: center;
-}
+} */
 
-#game-screen {
+/* #game-screen {
   display: none;
   align-content: center;
   padding: 20px 0px;
   overflow: hidden;
   position: relative;
-  background-image: url(../images/road.png);
+  /* background-image: url(../images/road.png);
   background-size: cover;
-  animation: slide 5s linear infinite;
-}
+  animation: slide 5s linear infinite; */
+/* } */ 
 
-/* @keyframes slide {
-  0% {
-    background-position: 0 -1000px;
-  }
-  95% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 50px;
-  }
-} */
-
-#game-over {
-  display: none;
-}
 
 /* .game-intro p {
   font-size: 18px;
@@ -76,26 +198,3 @@ body {
 } */
 
 
-#start-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  text-decoration: none;
-  color: #333333;
-  font-size: 18px;
-  border-radius: 0px;
-  width: 200px;
-  height: 40px;
-  font-weight: bold;
-  border: 2px solid #333333;
-  transition: 0.3s;
-  box-shadow: 5px 5px 0px 0px rgba(51, 51, 51, 1);
-  background-color: #ffffff;
-}
-
-#start-button:hover {
-  box-shadow: 0 0 #333;
-  color: #fff;
-  background-color: #333;
-}
