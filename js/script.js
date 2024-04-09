@@ -4,6 +4,7 @@ window.onload = function () {
   const playerNameInputIcon = document.getElementById("player-name-input-icon");
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
+  const audioTrack = new Audio("/audio/Next Future.mp3");
   let game;
 
   // Add an event listener to the activate button on the splash screen
@@ -28,7 +29,15 @@ window.onload = function () {
 
   startButton.addEventListener("click", function () {
     game.advanceToGameScreen();
+    game.start();
+    backingTrack();   
   });
+    
+    // Play backing track
+
+    function backingTrack () {
+        audioTrack.play();
+    }
 
   // Add an event listener to the restart button
   restartButton.addEventListener("click", function () {

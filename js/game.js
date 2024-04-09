@@ -17,7 +17,16 @@ class Game {
       100,
       150,
       "./images/drone.png"
-    );
+      );
+          this.height = 700;
+          this.width = 700;
+          this.obstacles = [new Obstacle(this.gameScreen)];
+          this.score = 0;
+          this.lives = 3;
+          this.gameIsOver = false;
+          this.gameIntervalID = null;
+          this.gameLoopFrequency = Math.round(1000 / 60);
+          this.counter = 1;
   }
 
   advanceToNameScreen() {
@@ -42,6 +51,20 @@ class Game {
   advanceToGameScreen() {
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
+  }
+
+  start() {
+    this.gameScreen.style.width = `${this.width}px`;
+    this.gameScreen.style.height = `${this.height}px`;
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "block";
+    // this.gameIntervalID = setInterval(() => {
+    //   this.gameLoop();
+    //   this.counter++;
+    //   if (this.counter % 200 === 0) {
+    //     this.obstacles.push(new Obstacle(this.gameScreen));
+    //   }
+    // }, this.gameLoopFrequency);
   }
 }
 
