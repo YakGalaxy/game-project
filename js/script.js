@@ -7,6 +7,8 @@ window.onload = function () {
   const audioTrack = new Audio("/audio/Next Future.mp3");
   const uiAudio = new Audio("/audio/Retro8.mp3");
   let game;
+  let playerNameInputValue;
+  let playerNameStorage;
 
   // Add an event listener to the activate button on the splash screen
   activateButton.addEventListener("click", function () {
@@ -24,6 +26,12 @@ window.onload = function () {
   // Add an event listener to the player-name-input-icon on the name-screen
 
   playerNameInputIcon.addEventListener("click", function () {
+    playerNameInputValue = document.getElementById("player-name-input").value;
+    playerNameStorage = localStorage.setItem(
+      "playerName",
+      playerNameInputValue
+    );
+    console.log(localStorage.getItem("playerName"));
     uiNoise();
     game.advanceToStartScreen();
   });
@@ -45,7 +53,7 @@ window.onload = function () {
   // Play Ui noise
 
   function uiNoise() {
-    uiAudio.load()
+    uiAudio.load();
     uiAudio.play();
   }
 
