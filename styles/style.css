@@ -88,7 +88,7 @@ body {
 /* Step 1 - Game Splash */
 
 #game-splash {
-  display: none;
+  /* display: none; */
 }
 
 /* Step 2 - Game Player Name */
@@ -97,10 +97,23 @@ body {
   display: none;
 }
 
+#input-wrapper {
+  position: relative;
+}
+
+
 input {
   width: 10vw;
   padding: 12px 20px;
 }
+
+#input-icon {
+  display: none;
+  position: absolute;
+  top: 1.5rem; 
+  right: 2rem;
+}
+
 
 /* Step 3 - Game Start */
 
@@ -116,9 +129,8 @@ input {
 /* Step 4 - Game Screen */
 
 #game-screen {
-  /* display: none; */
-
-  display: flex;
+  display: none;
+  /* display: flex; */
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;

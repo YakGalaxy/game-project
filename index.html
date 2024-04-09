@@ -21,20 +21,24 @@
         <!-- Step 1 - Game Splash -->
         <div id="game-splash">
           <h1>Game Name</h1>
-          <button id="start-button">Activate Your Drone</button>
+          <button id="activate-button">Activate Your Drone</button>
         </div>
         <!--  -->
 
         <!-- Step 2 - Game Player Name -->
         <div id="game-player-name">
           <h1>Enter Your Drone ID:</h1>
-          <input type="text" id="player-name" size="10" />
+          
+          <div id="input-wrapper">
+            <input type="text" id="player-name" size="10" />
+            <span id="input-icon">>>GO>></span>
+          </div>
         </div>
         <!--  -->
         <!-- Step 3 - Game Start -->
         <div id="game-start">
           <h1>Welcome DRONE ID</h1>
-          <h2 class="left-align">Your Intructions Are:</h2>
+          <h2 class="left-align">Your Instructions Are:</h2>
           <p class="left-align">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus
@@ -44,14 +48,14 @@
             adipiscing at in.
           </p>
           <h2 class="left-align">Your Delivery Quota For Today Is: X</h2>
-          <button id="activate-button">Activate Your Drone</button>
+          <button id="start-button">Activate Your Drone</button>
         </div>
         <!--  -->
         <!-- Step 4 - Game Screen -->
         <div id="game-screen">
           <div>
             <h2>Stats</h2>
-            <p>Score: <span id="score">0</span></p>
+            <p id="score">Score: <span id="score">0</span></p>
             <p>Lives: <span id="lives">3</span></p>
           </div>
           <img src="/images/health-bar.png" />
@@ -66,6 +70,9 @@
         <!--  -->
       </div>
     </main>
+    <script type="text/javascript" src="js/obstacle.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
