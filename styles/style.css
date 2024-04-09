@@ -99,8 +99,14 @@ input {
   display: none;
   position: absolute;
   top: 1.5rem;
-  right: 2rem;
+  right: 3rem;
+  font-size: larger;
+  font-weight: bolder;
 }
+
+#player-name-input-icon:hover {
+    cursor: pointer;
+  }
 
 #start-screen {
   display: none;

@@ -1,21 +1,10 @@
 window.onload = function () {
   const activateButton = document.getElementById("activate-button");
   const playerNameInput = document.getElementById("player-name-input");
+  const playerNameInputIcon = document.getElementById("player-name-input-icon");
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   let game;
-
-  // Add an event listener to the start button
-
-  //   startButton.addEventListener("click", function () {
-  //     activateGame();
-  //   });
-
-  //   function activateGame() {
-  //     console.log("activate game");
-  //     game = new Game();
-  //     // game.start();
-  //   }
 
   // Add an event listener to the activate button on the splash screen
   activateButton.addEventListener("click", function () {
@@ -29,7 +18,12 @@ window.onload = function () {
   //     game.inputConfirm();
   //   });
 
-    
+  // Add an event listener to the player-name-input-icon on the name-screen
+
+  playerNameInputIcon.addEventListener("click", function () {
+    game.advanceToStartScreen();
+  });
+
   // Add an event listener to the restart button
   restartButton.addEventListener("click", function () {
     // Call the restartGame function when the button is clicked
