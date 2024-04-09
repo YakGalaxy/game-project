@@ -116,6 +116,10 @@ input {
   max-width: 16.66vw;
 }
 
+#score-target {
+  display: none;
+}
+
 #game-screen {
   display: none;
   /* display: flex; */

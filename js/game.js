@@ -10,6 +10,7 @@ class Game {
     this.gameScreen = document.querySelector("#game-screen");
     this.gameOverScreen = document.querySelector("#game-over-screen");
     this.scoreElement = document.querySelector("#score");
+    this.scoreTarget = document.querySelector("#score-target");
     this.player = new Player(
       this.gameScreen,
       200,
@@ -17,16 +18,17 @@ class Game {
       100,
       150,
       "./images/drone.png"
-      );
-          this.height = 700;
-          this.width = 700;
-          this.obstacles = [new Obstacle(this.gameScreen)];
-          this.score = 0;
-          this.lives = 3;
-          this.gameIsOver = false;
-          this.gameIntervalID = null;
-          this.gameLoopFrequency = Math.round(1000 / 60);
-          this.counter = 1;
+    );
+    this.height = 700;
+    this.width = 700;
+    this.obstacles = [new Obstacle(this.gameScreen)];
+    this.score = 0;
+    this.scoreTargetNumber = Math.floor(Math.random() * 10 + 1);
+    this.lives = 3;
+    this.gameIsOver = false;
+    this.gameIntervalID = null;
+    this.gameLoopFrequency = Math.round(1000 / 60);
+    this.counter = 1;
   }
 
   advanceToNameScreen() {
@@ -46,11 +48,15 @@ class Game {
     this.nameScreen.style.display = "none";
     this.playerName.style.display = "none";
     this.startScreen.style.display = "block";
+    this.scoreTarget.style.display = "block";
+    this.scoreTarget.textContent = `${this.scoreTargetNumber}`;
+    console.log(this.scoreTarget);
   }
 
   advanceToGameScreen() {
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
+    this.scoreTarget.style.display = "none";
   }
 
   start() {
@@ -67,12 +73,3 @@ class Game {
     // }, this.gameLoopFrequency);
   }
 }
-
-// const audio = new Audio("/audio/Next Future.mp3");
-// const buttons = document.querySelectorAll("#activate-button");
-
-// buttons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     audio.play();
-//   });
-// });
