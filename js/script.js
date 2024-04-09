@@ -2,6 +2,7 @@ window.onload = function () {
   const activateButton = document.getElementById("activate-button");
   const playerNameInput = document.getElementById("player-name-input");
   const playerNameInputIcon = document.getElementById("player-name-input-icon");
+  let playerNameH1 = document.getElementById("player-name-h1");
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const audioTrack = new Audio("/audio/Next Future.mp3");
@@ -31,7 +32,8 @@ window.onload = function () {
       "playerName",
       playerNameInputValue
     );
-    console.log(localStorage.getItem("playerName"));
+    playerNameH1.textContent = `Welcome ${localStorage.getItem("playerName")}`;
+    // console.log(localStorage.getItem("playerName"));
     uiNoise();
     game.advanceToStartScreen();
   });
