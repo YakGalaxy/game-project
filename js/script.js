@@ -5,12 +5,14 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const audioTrack = new Audio("/audio/Next Future.mp3");
+  const uiAudio = new Audio("/audio/Retro8.mp3");
   let game;
 
   // Add an event listener to the activate button on the splash screen
   activateButton.addEventListener("click", function () {
     game = new Game();
     game.advanceToNameScreen();
+    uiNoise();
   });
 
   // Add an event listener to the player-name-input field on the name screen
@@ -22,6 +24,7 @@ window.onload = function () {
   // Add an event listener to the player-name-input-icon on the name-screen
 
   playerNameInputIcon.addEventListener("click", function () {
+    uiNoise();
     game.advanceToStartScreen();
   });
 
@@ -30,19 +33,26 @@ window.onload = function () {
   startButton.addEventListener("click", function () {
     game.advanceToGameScreen();
     game.start();
-    backingTrack();   
+    backingTrack();
   });
-    
-    // Play backing track
 
-    function backingTrack () {
-        audioTrack.play();
-    }
+  // Play backing track
+
+  function backingTrack() {
+    audioTrack.play();
+  }
+
+  // Play Ui noise
+
+  function uiNoise() {
+    uiAudio.play();
+  }
 
   // Add an event listener to the restart button
   restartButton.addEventListener("click", function () {
     // Call the restartGame function when the button is clicked
     restartGame();
+    uiNoise();
   });
 
   // The function that reloads the page to start a new game
