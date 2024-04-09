@@ -45,6 +45,7 @@ window.onload = function () {
   // Play Ui noise
 
   function uiNoise() {
+    uiAudio.load()
     uiAudio.play();
   }
 
