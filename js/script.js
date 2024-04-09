@@ -1,24 +1,11 @@
 window.onload = function () {
   const activateButton = document.getElementById("activate-button");
-
-  const nameInput = document.getElementById("player-name-input");
-
+  const playerNameInput = document.getElementById("player-name-input");
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   let game;
 
   // Add an event listener to the start button
-
-  // Add an event listener to the restart button
-  restartButton.addEventListener("click", function () {
-    // Call the restartGame function when the button is clicked
-    restartGame();
-  });
-
-  // The function that reloads the page to start a new game
-  function restartGame() {
-    location.reload();
-  }
 
   //   startButton.addEventListener("click", function () {
   //     activateGame();
@@ -30,52 +17,67 @@ window.onload = function () {
   //     // game.start();
   //   }
 
-  // Add an event listener to the activate button
+  // Add an event listener to the activate button on the splash screen
   activateButton.addEventListener("click", function () {
     game = new Game();
-    console.log("activate game");
-    game.nextScreen();
+    game.advanceToNameScreen();
   });
 
-  nameInput.addEventListener("input", function () {
-    game.inputConfirm();
+  // Add an event listener to the player-name-input field on the name screen
+  // Unclear what purpose this is serving (below)
+  //   playerNameInput.addEventListener("input", function () {
+  //     game.inputConfirm();
+  //   });
+
+    
+  // Add an event listener to the restart button
+  restartButton.addEventListener("click", function () {
+    // Call the restartGame function when the button is clicked
+    restartGame();
   });
 
-  document.addEventListener("keyup", () => {
-    game.player.directionX = 0;
-    game.player.directionY = 0;
-  });
-
-  window.addEventListener("keydown", handleKeydown);
-
-  function handleKeydown(event) {
-    const key = event.key;
-    const possibleKeystrokes = [
-      "ArrowLeft",
-      "ArrowUp",
-      "ArrowRight",
-      "ArrowDown",
-    ];
-
-    // Check if the pressed key is in the possibleKeystrokes array
-    if (possibleKeystrokes.includes(key)) {
-      event.preventDefault();
-
-      // Update player's directionX and directionY based on the key pressed
-      switch (key) {
-        case "ArrowLeft":
-          game.player.directionX = -1;
-          break;
-        case "ArrowUp":
-          game.player.directionY = -1;
-          break;
-        case "ArrowRight":
-          game.player.directionX = 1;
-          break;
-        case "ArrowDown":
-          game.player.directionY = 1;
-          break;
-      }
-    }
+  // The function that reloads the page to start a new game
+  function restartGame() {
+    location.reload();
   }
+
+  //     // Keyboard tracking
+
+  //   document.addEventListener("keyup", () => {
+  //     game.player.directionX = 0;
+  //     game.player.directionY = 0;
+  //   });
+
+  //   window.addEventListener("keydown", handleKeydown);
+
+  //   function handleKeydown(event) {
+  //     const key = event.key;
+  //     const possibleKeystrokes = [
+  //       "ArrowLeft",
+  //       "ArrowUp",
+  //       "ArrowRight",
+  //       "ArrowDown",
+  //     ];
+
+  //     // Check if the pressed key is in the possibleKeystrokes array
+  //     if (possibleKeystrokes.includes(key)) {
+  //       event.preventDefault();
+
+  //       // Update player's directionX and directionY based on the key pressed
+  //       switch (key) {
+  //         case "ArrowLeft":
+  //           game.player.directionX = -1;
+  //           break;
+  //         case "ArrowUp":
+  //           game.player.directionY = -1;
+  //           break;
+  //         case "ArrowRight":
+  //           game.player.directionX = 1;
+  //           break;
+  //         case "ArrowDown":
+  //           game.player.directionY = 1;
+  //           break;
+  //       }
+  //     }
+  //   }
 };

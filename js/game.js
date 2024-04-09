@@ -20,14 +20,17 @@ class Game {
     );
   }
 
-  nextScreen() {
+  advanceToNameScreen() {
     this.splashScreen.style.display = "none";
-    this.gamePlayerNameScreen.style.display = "block";
+    this.nameScreen.style.display = "block";
+    this.playerName.style.display = "block";
   }
 
-  inputConfirm() {
-    this.gamePlayerNameInput.style.display = "block";
-  }
+  // Unclear what purpose this is serving (below)
+
+  //   inputConfirm() {
+  //     this.gamePlayerNameInput.style.display = "block";
+  //   }
 
   start() {
     this.gameScreen.style.width = `${this.width}px`;
