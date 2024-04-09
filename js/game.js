@@ -50,7 +50,6 @@ class Game {
     this.startScreen.style.display = "block";
     this.scoreTarget.style.display = "block";
     this.scoreTarget.textContent = `${this.scoreTargetNumber}`;
-    console.log(this.scoreTarget);
   }
 
   advanceToGameScreen() {

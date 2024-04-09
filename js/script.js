@@ -34,6 +34,7 @@ window.onload = function () {
     );
     playerNameH1.textContent = `Welcome ${localStorage.getItem("playerName")}`;
     // console.log(localStorage.getItem("playerName"));
+    // playerNameInputValue = "";
     uiNoise();
     game.advanceToStartScreen();
   });
@@ -49,6 +50,9 @@ window.onload = function () {
   // Play backing track
 
   function backingTrack() {
+    audioTrack.volume = 0;
+    //   Reset to 0.15 outside of testing
+    audioTrack.loop = true;
     audioTrack.play();
   }
 
@@ -56,6 +60,7 @@ window.onload = function () {
 
   function uiNoise() {
     uiAudio.load();
+    uiAudio.volume = 0.25;
     uiAudio.play();
   }
 
