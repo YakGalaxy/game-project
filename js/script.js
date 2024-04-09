@@ -1,7 +1,7 @@
 window.onload = function () {
-    const activateButton = document.getElementById("activate-button");
-    
-  const nameInput = document.getElementById("player-name");
+  const activateButton = document.getElementById("activate-button");
+
+  const nameInput = document.getElementById("player-name-input");
 
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
@@ -20,32 +20,27 @@ window.onload = function () {
     location.reload();
   }
 
-//   startButton.addEventListener("click", function () {
-//     activateGame();
-//   });
+  //   startButton.addEventListener("click", function () {
+  //     activateGame();
+  //   });
 
-//   function activateGame() {
-//     console.log("activate game");
-//     game = new Game();
-//     // game.start();
-//   }
+  //   function activateGame() {
+  //     console.log("activate game");
+  //     game = new Game();
+  //     // game.start();
+  //   }
 
   // Add an event listener to the activate button
   activateButton.addEventListener("click", function () {
-      game = new Game();
-      console.log("activate game");
-      game.nextScreen();
+    game = new Game();
+    console.log("activate game");
+    game.nextScreen();
   });
 
-    
-    nameInput.addEventListener("input", function (){
-        game.inputConfirm(); 
-    });
-    
-    
-    
-    
-    
+  nameInput.addEventListener("input", function () {
+    game.inputConfirm();
+  });
+
   document.addEventListener("keyup", () => {
     game.player.directionX = 0;
     game.player.directionY = 0;

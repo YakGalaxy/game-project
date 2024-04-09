@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/normalize.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,26 +16,22 @@
   </head>
   <body>
     <main>
-      <div id="game-container">
-        <!-- Step 1 - Game Splash -->
-        <div id="game-splash">
+      <div id="container">
+        <div id="splash-screen">
           <h1>Game Name</h1>
           <button id="activate-button">Activate Your Drone</button>
         </div>
-        <!--  -->
 
-        <!-- Step 2 - Game Player Name -->
-        <div id="game-player-name">
+        <div id="name-screen">
           <h1>Enter Your Drone ID:</h1>
-          
-          <div id="input-wrapper">
-            <input type="text" id="player-name" size="10" />
-            <span id="input-icon">>>GO>></span>
+
+          <div id="player-name-input-wrapper">
+            <input type="text" id="player-name-input" size="10" />
+            <span id="player-name-input-icon">>>GO>></span>
           </div>
         </div>
-        <!--  -->
-        <!-- Step 3 - Game Start -->
-        <div id="game-start">
+
+        <div id="start-screen">
           <h1>Welcome DRONE ID</h1>
           <h2 class="left-align">Your Instructions Are:</h2>
           <p class="left-align">
@@ -50,8 +45,7 @@
           <h2 class="left-align">Your Delivery Quota For Today Is: X</h2>
           <button id="start-button">Activate Your Drone</button>
         </div>
-        <!--  -->
-        <!-- Step 4 - Game Screen -->
+
         <div id="game-screen">
           <div>
             <h2>Stats</h2>
@@ -60,14 +54,12 @@
           </div>
           <img src="/images/health-bar.png" />
         </div>
-        <!--  -->
-        <!-- Step 5 - Game Over Screen -->
-        <div id="game-over">
+
+        <div id="game-over-screen">
           <h1 class="left-align">You Delivered X Packages</h1>
           <h2 class="left-align">Your Highest Score Is X</h2>
           <button id="restart-button">Activate A New Drone</button>
         </div>
-        <!--  -->
       </div>
     </main>
     <script type="text/javascript" src="js/obstacle.js"></script>
