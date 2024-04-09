@@ -24,6 +24,12 @@ window.onload = function () {
     game.advanceToStartScreen();
   });
 
+  // Add an event listener to the start-button (activate your drone) on the start-screen
+
+  startButton.addEventListener("click", function () {
+    game.advanceToGameScreen();
+  });
+
   // Add an event listener to the restart button
   restartButton.addEventListener("click", function () {
     // Call the restartGame function when the button is clicked

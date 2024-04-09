@@ -38,6 +38,11 @@ class Game {
     this.playerName.style.display = "none";
     this.startScreen.style.display = "block";
   }
+
+  advanceToGameScreen() {
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "block";
+  }
 }
 
 // const audio = new Audio("/audio/Next Future.mp3");
