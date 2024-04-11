@@ -15,6 +15,7 @@ class Player {
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
     this.gameScreen.appendChild(this.element);
+    this.damageSound = new Audio("/audio/takedamage.wav");
   }
 
   move() {
@@ -37,6 +38,12 @@ class Player {
     this.element.style.left = `${this.left}px`;
   }
 
+  playDamageSound() {
+    this.damageSound.load();
+    this.damageSound.volume = 0.25;
+    this.damageSound.play();
+  }
+
   didCollide(obstacle) {
     const playerRect = this.element.getBoundingClientRect();
     const obstacleRect = obstacle.element.getBoundingClientRect();
@@ -47,6 +54,7 @@ class Player {
       playerRect.top < obstacleRect.bottom &&
       playerRect.bottom > obstacleRect.top
     ) {
+      this.playDamageSound();
       return true;
     } else {
       return false;
