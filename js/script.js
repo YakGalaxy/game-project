@@ -6,10 +6,10 @@ window.onload = function () {
   let playerNameH1 = document.getElementById("player-name-h1");
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
-  // Audio Tracks
-  const audioTrack = new Audio("/audio/Next Future.mp3");
-  const uiAudio = new Audio("/audio/Retro8.mp3");
-  const droneLoop = new Audio("/audio/droneloop.wav");
+  // // Audio Tracks
+  // const audioTrack = new Audio("/audio/Next Future.mp3");
+  // const uiAudio = new Audio("/audio/Retro8.mp3");
+  // const droneLoop = new Audio("/audio/droneloop.wav");
   // Initilizations
   let game;
   let playerNameInputValue;
@@ -19,7 +19,7 @@ window.onload = function () {
   activateButton.addEventListener("click", function () {
     game = new Game();
     game.advanceToNameScreen();
-    uiNoise();
+    game.uiNoise();
   });
 
   // Add an event listener to the player-name-input field on the name screen
@@ -39,7 +39,7 @@ window.onload = function () {
     playerNameH1.textContent = `Welcome ${localStorage.getItem("playerName")}`;
     // console.log(localStorage.getItem("playerName"));
     // playerNameInputValue = "";
-    uiNoise();
+    game.uiNoise();
     game.advanceToStartScreen();
   });
 
@@ -48,35 +48,9 @@ window.onload = function () {
   startButton.addEventListener("click", function () {
     game.advanceToGameScreen();
     game.start();
-    backingTrack();
-    droneSound();
+    game.backingTrack();
+    game.droneSound();
   });
-
-  // Play backing track
-
-  function backingTrack() {
-    audioTrack.volume = 0.15;
-    //   Reset to 0.15 outside of testing
-    audioTrack.loop = true;
-    audioTrack.play();
-  }
-
-  // Play drone (player) sound
-
-  function droneSound() {
-    droneLoop.volume = 0.15;
-    //   Reset to 0.15 outside of testing
-    droneLoop.loop = true;
-    droneLoop.play();
-  }
-
-  // Play Ui noises
-
-  function uiNoise() {
-    uiAudio.load();
-    uiAudio.volume = 0.25;
-    uiAudio.play();
-  }
 
   // Restarting the Game
 

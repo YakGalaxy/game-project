@@ -19,11 +19,16 @@ class Game {
     this.obstacles = [new Obstacle(this.gameScreen)];
     this.score = 0;
     this.scoreTargetNumber = Math.floor(Math.random() * 10 + 1);
-    this.lives = 3;
+    this.lives = 1;
+    // Adjust above after testing
     this.gameIsOver = false;
     this.gameIntervalID = null;
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.counter = 1;
+    // Audio
+    this.audioTrack = new Audio("/audio/Next Future.mp3");
+    this.uiAudio = new Audio("/audio/Retro8.mp3");
+    this.droneLoop = new Audio("/audio/droneloop.wav");
     // Player
     this.player = new Player(
       this.gameScreen,
@@ -70,6 +75,43 @@ class Game {
         this.obstacles.push(new Obstacle(this.gameScreen));
       }
     }, this.gameLoopFrequency);
+  }
+
+  // Audio Logic
+
+  // Play backing track
+
+  backingTrack() {
+    this.audioTrack.volume = 0.15;
+    //   Reset to 0.15 outside of testing
+    this.audioTrack.loop = true;
+    this.audioTrack.play();
+  }
+
+  // Play drone (player) sound
+
+  droneSound() {
+    this.droneLoop.volume = 0.15;
+    //   Reset to 0.15 outside of testing
+    this.droneLoop.loop = true;
+    this.droneLoop.play();
+  }
+
+  // Play Ui noises
+
+  uiNoise() {
+    this.uiAudio.load();
+    this.uiAudio.volume = 0.25;
+    this.uiAudio.play();
+  }
+
+  // Stop audio noises
+
+  stopAudio() {
+    this.audioTrack.pause();
+    this.audioTrack.currentTime = 0;
+    this.droneLoop.pause();
+    this.droneLoop.currentTime = 0;
   }
 
   // Game Loop Logic
@@ -131,6 +173,7 @@ class Game {
 
   // End Game Logic
   endGame() {
+    this.stopAudio();
     this.player.element.remove();
     this.obstacles.forEach((obstacle) => obstacle.element.remove());
 
