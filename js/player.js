@@ -2,6 +2,7 @@ class Player {
   constructor(gameScreen, left, top, width, height, image) {
     this.gameScreen = gameScreen;
     this.left = left;
+    this.right = this.left + this.width; 
     this.top = top;
     this.width = width;
     this.height = height;
@@ -14,6 +15,7 @@ class Player {
     this.element.style.height = `${this.height}px`;
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
+    this.element.style.right = `${this.right}px`;
     this.gameScreen.appendChild(this.element);
     this.damageSound = new Audio("/audio/takedamage.wav");
   }
@@ -22,12 +24,13 @@ class Player {
     this.left += this.directionX;
     this.top += this.directionY;
 
-    if (this.left < 50) {
-      this.left = 50;
+    if (this.left < 10) {
+      this.left = 10;
     }
 
-    if (this.left + this.width > 450) {
-      this.left = 450 - this.width;
+    if (this.left + this.width > 690) {
+      this.left = 690 - this.width;
+      this.right = this.width - this.left;
     }
 
     this.updatePosition();
@@ -36,6 +39,7 @@ class Player {
   updatePosition() {
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
+    this.element.style.right = `${this.right}px`;
   }
 
   playDamageSound() {

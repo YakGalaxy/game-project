@@ -3,38 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
       rel="stylesheet"
     />
 
-    <title>Game Title</title>
+    <title>Drone Rush V1.0</title>
   </head>
   <body>
     <main>
       <div id="container">
         <div id="splash-screen">
-          <h1>Game Name</h1>
-          <button id="activate-button">Activate Your Drone</button>
+          <h1>Drone Rush V1.0</h1>
+          <button id="activate-button">Activate</button>
         </div>
 
         <div id="name-screen">
-          <h1>Enter Your Drone ID:</h1>
-
+          <h1>Enter Your Drone ID</h1>
+          <p>* Please input your drone ID. </br>* Press <u>Enter</u> to continue _</p>
           <div id="player-name-input-wrapper">
-            <input type="text" id="player-name-input" placeholder="Type Here" size="10" />
-            <span id="player-name-input-icon">>>GO>></span>
+            <input
+              type="text"
+              id="player-name-input"
+              placeholder="Type Here"
+              size="10"
+            />
+            <!-- <span id="player-name-input-icon">>>GO>></span> -->
           </div>
         </div>
 
         <div id="start-screen">
-          <h1 id="player-name-h1"></h1>
-          <h2 class="left-align">Your Instructions Are:</h2>
-          <p class="left-align">
+          <div id="inner-start-screen"><h1 id="player-name-h1"></h1>
+          <!-- <h2>Your Instructions Are:</h2> -->
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus
             pulvinar elementum integer enim neque volutpat. Tristique nulla
@@ -42,16 +47,26 @@
             suspendisse potenti nullam ac tortor. Et tortor at risus viverra
             adipiscing at in.
           </p>
-          <h2 class="left-align">Your Delivery Quota For Today Is: <span id="score-target">0</span></h2>
-          <button id="start-button">Activate Your Drone</button>
+          <h2>
+            * Your Delivery Quota For Today = <span id="score-target">0</span></h2>
+          </h2>
+          <button id="start-button">Start</button>
+          </div>
+          <div class="loader"></div>
         </div>
 
         <div id="game-screen">
           <div id="stats-container">
-            <h2>Stats</h2>
-            <p id>Score: <span id="score">0</span></p>
+            <!-- <h2>Stats</h2> -->
+              <button class="dropbtn" id="file-button">File</button>
+                <div id="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+            </div> 
+            <p>Score: <span id="score">0</span></p>
             <p>Lives: <span id="lives">3</span></p>
-             <img id="health-bar" src="/images/health-bar.png" />
+            <img id="health-bar" src="/images/health-bar.png" />
           </div>
         </div>
 
@@ -62,6 +77,7 @@
         </div>
       </div>
     </main>
+    <div id="OS">LAYCY-OS V1.0</div>
     <script type="text/javascript" src="js/obstacle.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
