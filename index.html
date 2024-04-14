@@ -60,21 +60,33 @@
             <!-- <h2>Stats</h2> -->
               <button class="dropbtn" id="file-button">File</button>
                 <div id="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+                  <a href="#" id="restart">RESTART</a>
+                  <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">CHEAT MENU</a>
             </div> 
             <p>Score: <span id="score">0</span></p>
+            <p>Target: <span id="score-target-bar">0</span></p>
             <p>Lives: <span id="lives">3</span></p>
             <img id="health-bar" src="/images/health-bar.png" />
           </div>
         </div>
 
         <div id="game-over-screen">
-          <h1 class="left-align">You Delivered X Packages</h1>
-          <h2 class="left-align">Your Highest Score Is X</h2>
-          <button id="restart-button">Activate A New Drone</button>
+          <h1 id="score-h1">You Delivered <span id="scored"></span> Packages</h1>
+          <!-- <h2>Your Highest Score Is X</h2> -->
+          <button id="restart-button">Re-connect?</button>
         </div>
+                  <div id="game-won-screen">
+          <h1 id="score-h1">Delivery Target Achieved</h1>
+          <h2>You Delivered <span id="scored-2"></span> Packages</h2>
+          <table id="score-table">
+            <th>Player</th>
+            <th>Packages Delivered</th>
+            <tr></tr>
+          </table>
+          <button id="restart-button-2">Re-connect?</button>
+        </div>
+      </div>
+
       </div>
     </main>
     <div id="OS">LAYCY-OS V1.0</div>
@@ -82,5 +94,6 @@
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    
   </body>
 </html>

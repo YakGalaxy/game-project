@@ -33,6 +33,17 @@ class Player {
       this.right = this.width - this.left;
     }
 
+    if (this.top < 45) {
+      this.top = 45;
+    }
+
+    if (this.top > 660) {
+      this.top = 660; 
+    }
+//  if (this.top + this.height > 690) {
+//    this.bottom = this.height - this.top;
+//  }
+
     this.updatePosition();
   }
 

@@ -157,12 +157,14 @@ body {
 /* HTML: <div class="loader"></div> */
 .loader {
   display: none;
+  position: relative;
   width: 100%;
   height: 50%;
+  z-index: 1;
   background:
    linear-gradient(#AAA8B4 0 0) 0/0% no-repeat
    #0000A9;
-  animation: l1 20s linear;
+  animation: l1 3s linear;
 }
 @keyframes l1 {
     100% {background-size:100%}
@@ -230,23 +232,27 @@ body {
   background-size: cover;
   width: 700px;
   height: 700px;
-  animation: slide 5s linear infinite;
+  animation: slide 3s linear infinite;
 }
 
 @keyframes slide {
   0% {
-    background-position: 1000px 0;
+    background-position: 0;
   }
-  95% {
-    background-position: 0 0;
-  }
+  /* 95% {
+    background-position: 0 0; */
+  /* } */
   100% {
-    background-position: -50px 0;
+    background-position: -1400px
   }
 }
 
+.show {
+  display: block !important;
+}
+
 #stats-container {
-  display:flex;
+  display:none; 
   flex-flow: row nowrap;
   /* margin: 3%; */
   gap: 5%;
@@ -255,7 +261,7 @@ body {
   align-items: flex-start;
   color: black;
   width: 100%;
-  height: 5%;
+  height: 7%;
   align-content: stretch;
   font-size: 1.5rem;
   background-color: #AAA8B4;
@@ -268,6 +274,9 @@ body {
 
 #file-button {
   margin: 1%;
+
+  border: #0000A9 5px solid;
+  background-color: #AAA8B4;
 }
 
 
@@ -275,30 +284,43 @@ body {
   cursor: pointer;
 }
 
-
-.show {
-  display: inline-block !important;
+.hide {
+  display: none;
 }
+
 
 #dropdown-content {
   display: none;
-  position: relative;
-  top: 150%;
-  left: -13%;
+  position: absolute;
+  left: 0;
+  top: 7%;
+  /* align-self: flex-start;
+  flex-direction: column; */
+  /* width: 100%; */
   background-color: #f1f1f1;
-  min-width: 160px;
-  z-index: 1;
+  /* min-width: 160px; */
+  /* z-index: 1; */
 }
 
 #dropdown-content a {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
   color: black;
   background-color: #AAA8B4;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  z-index: 2;
 }
 
-#dropdown-content:hover {
+/* #dropdown-content li {
+  position: relative;
+  width: 100%;
+  text-align: center;
+} */
+
+#dropdown-content a:hover {
   color: #AAA8B4;
   background-color: #0000A9;
 }
@@ -318,9 +340,45 @@ height: 56px;
 
 #game-over-screen {
   display: none;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  width: 700px;
+}
+
+#game-won-screen {
+  display: none;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  width: 700px;
+}
+
+#game-won-screen h2 {
+  width: 100%;
+}
+
+#score-table {
+  display: none;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border: 1px solid #AAA8B4;
 }
 
 
+#score-h1 {
+  color: #0000A9;
+  background-color: #AAA8B4;
+  font-size: 3rem;
+  width: 100%;
+  text-align: center !important;
+}
 
 
 .left-align {
@@ -386,5 +444,63 @@ height: 56px;
 }
 
 
+#restart-button {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  
+  text-transform: uppercase;
+  font-size: 2rem;
+  border-radius: 0px;
+ height: 6vh;
+  border: 0.25vw solid#AAA8B4; 
+  transition: 0.3s;
 
+  background-color: #AAA8B4;
+  cursor: pointer;
+    /* border-radius: 15px; */
+  box-shadow: 0 9px #5f5f5f;
+  width: 25vw;
+    margin: 0.67em 0;
+}
+
+#restart-button:hover {
+  color: #AAA8B4;
+  background-color: #0000A9;
+}
+
+#restart-button:active {
+  background-color: #0000A9;
+  box-shadow: 0 0.5vh white;
+  transform: translateY(4px);
+}
+
+#restart-button-2 {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  
+  text-transform: uppercase;
+  font-size: 2rem;
+  border-radius: 0px;
+ height: 6vh;
+  border: 0.25vw solid#AAA8B4; 
+  transition: 0.3s;
+
+  background-color: #AAA8B4;
+  cursor: pointer;
+    /* border-radius: 15px; */
+  box-shadow: 0 9px #5f5f5f;
+  width: 25vw;
+    margin: 0.67em 0;
+}
+
+#restart-button-2:hover {
+  color: #AAA8B4;
+  background-color: #0000A9;
+}
+
+#restart-button-2:active {
+  background-color: #0000A9;
+  box-shadow: 0 0.5vh white;
+  transform: translateY(4px);
+}
 

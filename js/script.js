@@ -2,16 +2,29 @@ window.onload = function () {
   // Elements
   const activateButton = document.getElementById("activate-button");
   const playerNameInput = document.getElementById("player-name-input");
-  let playerNameH1 = document.getElementById("player-name-h1");
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
+  const restartButton2 = document.getElementById("restart-button-2");
   const fileButton = document.getElementById("file-button");
   const fileDropdown = document.getElementById("dropdown-content");
+  const restartDropdownLink = document.getElementById("restart");
+
+  //  Window onclicks
+
+  // window.onclick = function (event) {
+  //   let dropdown = document.getElementById("dropdown-content");
+  //   if (event.target != dropdown) {
+  //     console.log("click fired");
+  //     if (dropdown.classList.contains("show")) {
+  //       dropdown.classList.replace("show", "#dropdown-content")
+  //       console.log("if fired");
+  //     }
+  //   }
+  //   }
 
   // Initilizations
   let game;
-  let playerNameInputValue;
-  let playerNameStorage;
+
 
   // Splash Screen Listener
   activateButton.addEventListener("click", function () {
@@ -25,14 +38,7 @@ window.onload = function () {
     const key = e.code;
 
     if (key === "Enter") {
-      playerNameInputValue = document.getElementById("player-name-input").value;
-      playerNameStorage = localStorage.setItem(
-        "playerName",
-        playerNameInputValue
-      );
-      playerNameH1.textContent = `Welcome ${localStorage.getItem(
-        "playerName"
-      )}`;
+      game.playerNameStorage(); 
       // console.log(localStorage.getItem("playerName"));
       // playerNameInputValue = "";
       game.uiNoise();
@@ -42,42 +48,44 @@ window.onload = function () {
 
   // Event listener for the start-button (activate your drone) on the start-screen
   startButton.addEventListener("click", function () {
+    game.uiNoise();
     game.advanceToGameScreen();
-    game.start();
   });
 
   // Event listener for the file-button on the game screen
   fileButton.addEventListener("click", function () {
     // fileButton.classList.toggle("show");
-    fileDropdown.style.removeProperty("display")
     fileDropdown.classList.toggle("show");
+    // fileDropdown.classList.add("show");
+    // fileDropdown.classList.add("show");
   });
-
-  window.onclick = function (event) {
-    if (!event.target.matches(".dropbtn")) {
-      let dropdowns = document.getElementsByClassName("dropdown-content");
-      let i;
-      for (i = 0; i < dropdowns.length; i++) {
-        let openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains("show")) {
-          openDropdown.classList.remove("show");
-        }
-      }
-    }
-  }; 
-
 
   // Restarting the Game
 
-  // Add an event listener to the restart button
+  // Add an event listener to the restart buttons
   restartButton.addEventListener("click", function () {
-    restartGame();
     game.uiNoise();
+    restartGame();
+  });
+
+  restartButton2.addEventListener("click", function () {
+    game.uiNoise();
+    restartGame();
+  });
+
+
+  // Add an event listener to the restart dropdown link
+  restartDropdownLink.addEventListener("click", function () {
+    game.uiNoise();
+    restartGame();
   });
 
   // The function that reloads the page to start a new game
   function restartGame() {
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+      // this.dialAudio()
+    }, 1000);
   }
 
   // Player Keyboard tracking
