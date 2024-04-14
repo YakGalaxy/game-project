@@ -12,7 +12,10 @@ class Obstacle {
     this.width = 229;
     this.height = 108.5;
     this.element = document.createElement("img");
-    this.imagePaths = ["./images/truck-a.png", "./images/truck-b.png"];
+    this.imagePaths = [
+      "/game-project/images/truck-a.png",
+      "/game-project/images/truck-b.png",
+    ];
     this.currentIndex = 0; 
     this.differentTruck();
     this.element.src = this.imagePaths[this.currentIndex];
@@ -23,7 +26,7 @@ class Obstacle {
     this.element.style.left = `${this.left}px`;
     this.element.style.right = `${this.right}px`;
     this.gameScreen.appendChild(this.element);
-    this.sound = new Audio("/audio/righttoleft.wav");
+    this.sound = new Audio("/game-project/audio/righttoleft.wav");
   }
 
   differentTruck() {

@@ -42,13 +42,13 @@ class Game {
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.counter = 1;
     // Audio
-    this.audioTrack = new Audio("/audio/Next Future.mp3");
-    this.uiAudio = new Audio("/audio/granted.wav");
-    this.droneLoop = new Audio("/audio/droneloop.wav");
-    this.gameOverAudio = new Audio("/audio/gameover.wav");
-    this.gameWonAudio = new Audio("/audio/win.ogg");
-    this.dialSound = new Audio("/audio/dialup.flac");
-    this.scoreSound = new Audio("/audio/coin.wav");
+    this.audioTrack = new Audio("/game-project/audio/Next Future.mp3");
+    this.uiAudio = new Audio("/game-project/audio/granted.wav");
+    this.droneLoop = new Audio("/game-project/audio/droneloop.wav");
+    this.gameOverAudio = new Audio("/game-project/audio/gameover.wav");
+    this.gameWonAudio = new Audio("/game-project/audio/win.ogg");
+    this.dialSound = new Audio("/game-project/audio/dialup.flac");
+    this.scoreSound = new Audio("/game-project/audio/coin.wav");
     // Player
     this.player = new Player(
       this.gameScreen,
@@ -56,7 +56,7 @@ class Game {
       350,
       57,
       49,
-      "./images/drone.png"
+      "/game-project/images/drone.png"
     );
   }
 
