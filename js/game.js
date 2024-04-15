@@ -4,6 +4,7 @@ class Game {
     this.splashScreen = document.querySelector("#splash-screen");
     this.nameScreen = document.querySelector("#name-screen");
     this.playerNameInput = document.querySelector("#player-name-input");
+    this.cheatScreen = document.querySelector("#cheat-screen");
     // this.playerNameInputIcon = document.querySelector(
     //   "#player-name-input-icon"
     // );
@@ -29,6 +30,7 @@ class Game {
     this.obstacles = [new Obstacle(this.gameScreen)];
     this.score = 0;
     this.scoreTargetNumber = Math.floor(Math.random() * 10 + 1);
+    // Math.floor(Math.random() * 10 + 1)
     this.lives = 3;
     // this.highScore;
     this.gameWon = false;
@@ -49,6 +51,7 @@ class Game {
     this.gameWonAudio = new Audio("/audio/win.ogg");
     this.dialSound = new Audio("/audio/dialup.flac");
     this.scoreSound = new Audio("/audio/coin.wav");
+    this.cheatSound = new Audio("/audio/error.wav");
     // Player
     this.player = new Player(
       this.gameScreen,
@@ -120,19 +123,21 @@ class Game {
 
     for (let i = 0; i < this.obstacles.length; i++) {
       const oneObstacle = this.obstacles[i];
-      let gameScreenLeft = this.gameScreen.getBoundingClientRect().left;
-      oneObstacle.move();
-      // console.log(oneObstacle.right);
-      // console.log(gameScreenLeft);
+      // let gameScreenLeft = this.gameScreen.getBoundingClientRect().left;
+      // let gameScreenWidth = this.gameScreen.getBoundingClientRect().width
 
-      if (oneObstacle.right < gameScreenLeft) {
+      oneObstacle.move();
+      // console.log(gameScreenLeft);
+      // console.log(gameScreenWidth);
+      // console.log(gameScreenLeft - gameScreenWidth);
+
+      if (oneObstacle.right < 0) {
         this.obstacles.splice(i, 1);
         i--;
         this.score++;
-        this.scoreNoise(); 
+        this.scoreNoise();
         this.scoreElement.innerText = `${this.score}`;
         oneObstacle.element.remove();
-        // console.log(this.score);
       }
     }
 
@@ -156,7 +161,7 @@ class Game {
         i--;
       } else if (obstacle.right < this.gameScreenLeft) {
         this.score++;
-        this.scoreNoise(); 
+        this.scoreNoise();
         obstacle.element.remove();
         this.obstacles.splice(i, 1);
         i--;
@@ -180,6 +185,16 @@ class Game {
   }
 
   // End Game Logic
+
+  cheat() {
+    this.gameIsOver = true;
+    this.cheatNoise();
+    this.player.element.remove();
+    this.obstacles.forEach((obstacle) => obstacle.element.remove());
+    this.gameScreen.style.display = "none";
+    this.cheatScreen.style.display = "flex";
+  }
+
   endGame() {
     this.stopAudio();
     this.gamerOverNoise();
@@ -274,6 +289,12 @@ class Game {
     this.uiAudio.load();
     this.uiAudio.volume = 0.25;
     this.uiAudio.play();
+  }
+
+  cheatNoise() {
+    this.cheatSound.load();
+    this.cheatSound.volume = 0.25;
+    this.cheatSound.play();
   }
 
   gamerOverNoise() {

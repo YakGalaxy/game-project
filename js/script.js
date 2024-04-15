@@ -5,6 +5,7 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const restartButton2 = document.getElementById("restart-button-2");
+  const cheatButton = document.getElementById("cheat-button");
   const fileButton = document.getElementById("file-button");
   const fileDropdown = document.getElementById("dropdown-content");
   const restartDropdownLink = document.getElementById("restart");
@@ -72,6 +73,13 @@ window.onload = function () {
     game.uiNoise();
     restartGame();
   });
+
+  // Cheat button
+
+  cheatButton.addEventListener("click", function () {
+    game.cheat();
+  });
+
 
 
   // Add an event listener to the restart dropdown link
