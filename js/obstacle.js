@@ -40,10 +40,11 @@ class Obstacle {
     // this.sound.volume = 0.15;
     //   Reset to 0.15 outside of testing
     // this.sound.play();
-    let gameScreenLeft = this.gameScreen.getBoundingClientRect().left;
+    // let gameScreenLeft = this.gameScreen.getBoundingClientRect().left;
     this.left -= 3;
     // this.left += this.directionX;
     this.right = this.left + this.width; 
+    // this.right += 3;
     // this.right = this.left + this.element.style.width;
     this.updatePosition();
   }
