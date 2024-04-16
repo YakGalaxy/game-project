@@ -17,12 +17,12 @@
   <body>
     <main>
       <div id="container">
-        <div id="splash-screen">
+        <div id="splash-screen" class="flex-rw">
           <h1>Drone Rush V1.0</h1>
-          <button id="activate-button">Activate</button>
+          <button id="activate-button" class="button">Activate</button>
         </div>
 
-        <div id="name-screen">
+        <div id="name-screen" class="flex-rw">
           <h1>Enter Your Drone ID</h1>
           <p>* Please input your drone ID. </br>* Press <u>Enter</u> to continue _</p>
           <div id="player-name-input-wrapper">
@@ -36,8 +36,8 @@
           </div>
         </div>
 
-        <div id="start-screen">
-          <div id="inner-start-screen"><h1 id="player-name-h1"></h1>
+        <div id="start-screen" class="flex-rw margin-auto">
+          <div id="inner-start-screen" class="flex-rw margin-auto"><h1 id="player-name-h1"></h1>
           <!-- <h2>Your Instructions Are:</h2> -->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -50,12 +50,12 @@
           <h2>
             * Your Delivery Quota For Today = <span id="score-target">0</span></h2>
           </h2>
-          <button id="start-button">Start</button>
+          <button id="start-button" class="button">Start</button>
           </div>
           <div class="loader"></div>
         </div>
 
-        <div id="game-screen">
+        <div id="game-screen" class="flex-rw">
           <div id="stats-container">
             <!-- <h2>Stats</h2> -->
               <button class="dropbtn" id="file-button">File</button>
@@ -70,30 +70,30 @@
           </div>
         </div>
 
-        <div id="cheat-screen">
-          <button id="restart-button">Re-connect?</button>
+        <div id="cheat-screen" class="flex-rw margin-auto">
+          <button id="restart-button" class="button">Re-connect?</button>
         </div>
 
-        <div id="game-over-screen">
+        <div id="game-over-screen" class="flex-rw margin-auto">
           <h1 id="score-h1">You Delivered <span id="scored"></span> Packages</h1>
           <!-- <h2>Your Highest Score Is X</h2> -->
-          <button id="restart-button">Re-connect?</button>
+          <button id="restart-button" class="button">Re-connect?</button>
         </div>
-                  <div id="game-won-screen">
+                  <div id="game-won-screen" class="flex-rw margin-auto">
           <h1 id="score-h1">Delivery Target Achieved</h1>
           <h2>You Delivered <span id="scored-2"></span> Packages</h2>
-          <table id="score-table">
+          <table id="score-table" class="flex-rw">
             <th>Player</th>
             <th>Packages Delivered</th>
             <tr></tr>
           </table>
-          <button id="restart-button-2">Re-connect?</button>
+          <button id="restart-button-2" class="button">Re-connect?</button>
         </div>
       </div>
 
       </div>
     </main>
-    <div id="OS">LAYCY-OS V1.0</div>
+    <div id="OS" class="margin-auto width-700">LAYCY-OS V1.0</div>
     <script type="text/javascript" src="js/obstacle.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
