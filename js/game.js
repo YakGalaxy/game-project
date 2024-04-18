@@ -47,15 +47,15 @@ class Game {
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.counter = 1;
     // Audio Files
-    this.audioTrack = new Audio("/game-project/audio/Next Future.mp3");
-    this.uiAudio = new Audio("/game-project/audio/granted.wav");
-    this.droneLoop = new Audio("/game-project/audio/droneloop.wav");
-    this.gameOverAudio = new Audio("/game-project/audio/gameover.wav");
-    this.gameWonAudio = new Audio("/game-project/audio/win.ogg");
-    this.dialSound = new Audio("/game-project/audio/dialup.flac");
-    this.scoreSound = new Audio("/game-project/audio/coin.wav");
-    this.cheatSound = new Audio("/game-project/audio/error.wav");
-  this.levelUpSound = new Audio("/game-project/audio/levelup.wav");
+    this.audioTrack = new Audio("/windrone-95/audio/Next Future.mp3");
+    this.uiAudio = new Audio("/windrone-95/audio/granted.wav");
+    this.droneLoop = new Audio("/windrone-95/audio/droneloop.wav");
+    this.gameOverAudio = new Audio("/windrone-95/audio/gameover.wav");
+    this.gameWonAudio = new Audio("/windrone-95/audio/win.ogg");
+    this.dialSound = new Audio("/windrone-95/audio/dialup.flac");
+    this.scoreSound = new Audio("/windrone-95/audio/coin.wav");
+    this.cheatSound = new Audio("/windrone-95/audio/error.wav");
+    this.levelUpSound = new Audio("/windrone-95/audio/levelup.wav");
 
     // Player
     this.player = new Player(
@@ -64,7 +64,7 @@ class Game {
       350,
       57,
       49,
-      "/game-project/images/drone.png"
+      "/windrone-95/images/drone.png"
     );
   }
 
@@ -138,17 +138,17 @@ class Game {
       }
     }
 
-    if (this.score % 10 === 0 & this.score !== 0 & this.score < 20) {
-      this.scoreMilestoneNoise(); 
+    if ((this.score % 10 === 0) & (this.score !== 0) & (this.score < 20)) {
+      this.scoreMilestoneNoise();
     }
-    
+
     // if (this.score >= 20) {
-    //   this.boost = true; 
+    //   this.boost = true;
     // }
-      
-      if (this.gameIsOver === true) {
-        clearInterval(this.gameIntervalID);
-      }
+
+    if (this.gameIsOver === true) {
+      clearInterval(this.gameIntervalID);
+    }
   }
 
   update() {

@@ -25,7 +25,7 @@ To play WINDRONE 95, follow these simple steps:
 Clone the repo:
 
 ```bash
-   git clone https://github.com/YakGalaxy/game-project.git
+   git clone https://github.com/YakGalaxy/windrone-95.git
 
     Open the index.html file in your browser to start playing!
 ```
@@ -51,20 +51,20 @@ Distributed under the MIT License. See LICENSE for more information.
 ### Contact
 
 Alex Laycy - alex@alexlaycy.com
-Project Link: https://github.com/YakGalaxy/game-project
+Project Link: https://github.com/YakGalaxy/windrone-95
 
 ### Acknowledgements
 
 Some amazing free assets from itch.io including;
 
 - https://free-game-assets.itch.io/free-drones-pack-pixel-art
-- https://free-game-assets.itch.io/free-city-backgrounds-pixel-art 
+- https://free-game-assets.itch.io/free-city-backgrounds-pixel-art
 - https://free-game-assets.itch.io/free-truck-constructor-pixel-art
 
 Great free sounds via https://freesound.org including;
 
 - https://freesound.org/people/Kenneth_Cooney/sounds/609335/
-- https://freesound.org/people/Breviceps/sounds/450616/ 
+- https://freesound.org/people/Breviceps/sounds/450616/
 - https://freesound.org/people/ProjectsU012/sounds/341695/
 - https://freesound.org/people/Yoshicakes77/sounds/703543/
 - https://freesound.org/people/thearchiveguy99/sounds/658932/
@@ -72,4 +72,3 @@ Great free sounds via https://freesound.org including;
 - https://freesound.org/people/myfox14/sounds/382310/
 - https://freesound.org/people/stumpbutt/sounds/629664/
 - https://freesound.org/people/grauxonen/sounds/679693/
-

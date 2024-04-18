@@ -17,20 +17,20 @@ class Obstacle {
 
     // Visuals
     this.imagePaths = [
-      "./game-project/images/truck-a.png",
-      "./game-project/images/truck-b.png",
-      "./game-project/images/truck1.png",
-      "./game-project/images/truck2.png",
-      "./game-project/images/truck3.png",
-      "./game-project/images/truck4.png",
-      "./game-project/images/truck5.png",
-      "./game-project/images/truck6.png",
-      "./game-project/images/truck7.png",
-      "./game-project/images/truck8.png",
-      "./game-project/images/truck9.png",
-      "./game-project/images/drone1.png",
-      "./game-project/images/drone2.png",
-      "./game-project/images/drone3.png",
+      "./windrone-95/images/truck-a.png",
+      "./windrone-95/images/truck-b.png",
+      "./windrone-95/images/truck1.png",
+      "./windrone-95/images/truck2.png",
+      "./windrone-95/images/truck3.png",
+      "./windrone-95/images/truck4.png",
+      "./windrone-95/images/truck5.png",
+      "./windrone-95/images/truck6.png",
+      "./windrone-95/images/truck7.png",
+      "./windrone-95/images/truck8.png",
+      "./windrone-95/images/truck9.png",
+      "./windrone-95/images/drone1.png",
+      "./windrone-95/images/drone2.png",
+      "./windrone-95/images/drone3.png",
     ];
 
     this.currentIndex = 0;
@@ -73,7 +73,7 @@ class Obstacle {
 
   // Movement Logic
   move() {
-    this.left -= this.speed; 
+    this.left -= this.speed;
     this.right = this.left + this.width;
     this.updatePosition();
     // Comment out above to help testing
