@@ -17,20 +17,20 @@ class Obstacle {
 
     // Visuals
     this.imagePaths = [
-      "./windrone-95/images/truck-a.png",
-      "./windrone-95/images/truck-b.png",
-      "./windrone-95/images/truck1.png",
-      "./windrone-95/images/truck2.png",
-      "./windrone-95/images/truck3.png",
-      "./windrone-95/images/truck4.png",
-      "./windrone-95/images/truck5.png",
-      "./windrone-95/images/truck6.png",
-      "./windrone-95/images/truck7.png",
-      "./windrone-95/images/truck8.png",
-      "./windrone-95/images/truck9.png",
-      "./windrone-95/images/drone1.png",
-      "./windrone-95/images/drone2.png",
-      "./windrone-95/images/drone3.png",
+      "/windrone-95/images/truck-a.png",
+      "/windrone-95/images/truck-b.png",
+      "/windrone-95/images/truck1.png",
+      "/windrone-95/images/truck2.png",
+      "/windrone-95/images/truck3.png",
+      "/windrone-95/images/truck4.png",
+      "/windrone-95/images/truck5.png",
+      "/windrone-95/images/truck6.png",
+      "/windrone-95/images/truck7.png",
+      "/windrone-95/images/truck8.png",
+      "/windrone-95/images/truck9.png",
+      "/windrone-95/images/drone1.png",
+      "/windrone-95/images/drone2.png",
+      "/windrone-95/images/drone3.png",
     ];
 
     this.currentIndex = 0;

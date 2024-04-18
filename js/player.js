@@ -23,7 +23,7 @@ class Player {
     this.gameScreen.appendChild(this.element);
 
     // Audio Files
-    this.damageSound = new Audio("/audio/takedamage.wav");
+    this.damageSound = new Audio("/windrone-95/audio/takedamage.wav");
   }
 
   // Movement Logic
