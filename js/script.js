@@ -87,7 +87,7 @@ window.onload = function () {
       "d",
     ];
 
-    if (possibleKeystrokes.includes(key)) {
+    if (possibleKeystrokes.includes(key) & Game.boost !== true) {
       event.preventDefault();
 
       switch (key) {
@@ -117,6 +117,37 @@ window.onload = function () {
           break;
       }
     }
+
+    // if (possibleKeystrokes.includes(key) & Game.boost === true) {
+    //   event.preventDefault();
+
+    //   switch (key) {
+    //     case "ArrowLeft":
+    //       game.player.directionX = -20;
+    //       break;
+    //     case "ArrowUp":
+    //       game.player.directionY = -20;
+    //       break;
+    //     case "ArrowRight":
+    //       game.player.directionX = 20;
+    //       break;
+    //     case "ArrowDown":
+    //       game.player.directionY = 20;
+    //       break;
+    //     case "w":
+    //       game.player.directionY = -20;
+    //       break;
+    //     case "a":
+    //       game.player.directionX = -20;
+    //       break;
+    //     case "s":
+    //       game.player.directionY = 20;
+    //       break;
+    //     case "d":
+    //       game.player.directionX = 20;
+    //       break;
+    //   }
+    // }
   }
 
   // Restart Game Logic

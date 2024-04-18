@@ -28,9 +28,11 @@ class Player {
 
   // Movement Logic
   move() {
-    this.left += this.directionX;
-    this.top += this.directionY;
+    
+      this.left += this.directionX;
+      this.top += this.directionY;
 
+      
     if (this.left < 10) {
       this.left = 10;
     }

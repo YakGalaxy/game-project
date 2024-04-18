@@ -11,12 +11,11 @@ class Obstacle {
       this.possiblePositions[
         Math.floor(Math.random() * this.possiblePositions.length)
       ];
-    this.right = this.left + this.width;
     this.left = 700;
-    // Adjust so that sound matches speed of obstacle movement from right to left
+    this.right = this.left + this.width;
+    this.speed = Math.floor(Math.random() * 10) + 1;
 
     // Visuals
-    this.element = document.createElement("img");
     this.imagePaths = [
       "./images/truck-a.png",
       "./images/truck-b.png",
@@ -33,24 +32,36 @@ class Obstacle {
       "./images/drone2.png",
       "./images/drone3.png",
     ];
+
     this.currentIndex = 0;
-    this.differentTruck();
+    this.element = document.createElement("img");
+    this.element.onload = () => {
+      // Update dimensions on image load
+      this.width = this.element.naturalWidth;
+      this.height = this.element.naturalHeight;
+      this.element.style.width = `${this.width}px`;
+      this.element.style.height = `${this.height}px`;
+
+      // Set position
+      this.element.style.position = "absolute";
+      this.element.style.top = `${this.top}px`;
+      this.element.style.left = `${this.left}px`;
+      this.element.style.right = `${this.right}px`;
+      this.element.style.overflow = "hidden";
+      // this.updatePosition();
+
+      // Append the element to the game screen
+      this.gameScreen.appendChild(this.element);
+    };
+
+    // Set initial src to start loading process
     this.element.src = this.imagePaths[this.currentIndex];
-    this.element.style.position = "absolute";
-    this.width = this.element.naturalWidth;
-    // 229;
-    this.height = this.element.naturalHeight;
-    // 108.5;
-    this.element.style.width = `${this.width}px`;
-    this.element.style.height = `${this.height}px`;
-    this.element.style.top = `${this.top}px`;
-    this.element.style.left = `${this.left}px`;
-    this.element.style.right = `${this.right}px`;
-    this.element.style.overflow = "hidden";
-    this.gameScreen.appendChild(this.element);
+    // Set a new truck image
+    this.differentTruck();
+    this.updatePosition();
 
     // Audio Files
-    this.sound = new Audio("/audio/righttoleft.wav");
+    // this.sound = new Audio("/audio/righttoleft.wav");
   }
 
   // Multi-truck logic
@@ -62,7 +73,7 @@ class Obstacle {
 
   // Movement Logic
   move() {
-    this.left -= 3;
+    this.left -= this.speed; 
     this.right = this.left + this.width;
     this.updatePosition();
     // Comment out above to help testing

@@ -34,6 +34,7 @@ class Game {
     this.score = 0;
     this.scoreTargetNumber = Math.floor(Math.random() * 100 + 10);
     this.lives = 3;
+    this.boost = false; 
     // this.highScore;
     this.gameWon = false;
     this.playerName;
@@ -55,6 +56,7 @@ class Game {
     this.dialSound = new Audio("/audio/dialup.flac");
     this.scoreSound = new Audio("/audio/coin.wav");
     this.cheatSound = new Audio("/audio/error.wav");
+    this.levelUpSound = new Audio("/audio/levelup.wav");
 
     // Player Object
     this.player = new Player(
@@ -137,9 +139,17 @@ class Game {
       }
     }
 
-    if (this.gameIsOver === true) {
-      clearInterval(this.gameIntervalID);
+    if (this.score % 10 === 0 & this.score !== 0 & this.score < 20) {
+      this.scoreMilestoneNoise(); 
     }
+    
+    // if (this.score >= 20) {
+    //   this.boost = true; 
+    // }
+      
+      if (this.gameIsOver === true) {
+        clearInterval(this.gameIntervalID);
+      }
   }
 
   update() {
@@ -228,7 +238,30 @@ class Game {
   }
 
   // High Score storage
-  // highScoreStorage() {
+  highScoreStorage() {
+    let highScoresFromLS = JSON.parse(localStorage.getItem("highscores"));
+
+    if (highScoresFromLS) {
+      const newHighScore = { name: this.playerName, score: this.score };
+      highScoresFromLS.push(newHighScore);
+      highScoresFromLS.sort((a, b) => {
+        if (a.score < b.score) {
+          return 1;
+        } else if (a.score > b.score) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+
+      highScoresFromLS = highScoresFromLS.slice(0, 3);
+      console.log("here are the scores from the ls", highScoresFromLS);
+      localStorage.setItem("highscores", JSON.stringify(highScoresFromLS));
+    } else {
+      const newHighScores = [{ name: this.playerName, score: this.score }];
+      localStorage.setItem("highscores", JSON.stringify(newHighScores));
+    }
+  }
 
   //   if (localStorage.getItem(this.playerName)) {
 
@@ -292,6 +325,12 @@ class Game {
     this.scoreSound.load();
     this.scoreSound.volume = 0.25;
     this.scoreSound.play();
+  }
+
+  scoreMilestoneNoise() {
+    this.levelUpSound.load();
+    this.levelUpSound.volume = 0.75;
+    this.levelUpSound.play();
   }
 
   stopAudio() {
