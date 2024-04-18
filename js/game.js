@@ -2,35 +2,37 @@ class Game {
   constructor() {
     // Screens & Elements
     this.splashScreen = document.querySelector("#splash-screen");
+
     this.nameScreen = document.querySelector("#name-screen");
     this.playerNameInput = document.querySelector("#player-name-input");
     this.cheatScreen = document.querySelector("#cheat-screen");
-    // this.playerNameInputIcon = document.querySelector(
-    //   "#player-name-input-icon"
-    // );
     this.playerNameInput = document.getElementById("player-name-input");
     this.playerNameH1 = document.getElementById("player-name-h1");
+
     this.startScreen = document.querySelector("#start-screen");
     this.innerStartScreen = document.querySelector("#inner-start-screen");
+    this.loadingBar = document.querySelector(".loader");
+
     this.gameScreen = document.querySelector("#game-screen");
-    this.gameOverScreen = document.querySelector("#game-over-screen");
-    this.gameWonScreen = document.querySelector("#game-won-screen");
+    this.statsContainer = document.querySelector("#stats-container");
     this.scoreElement = document.querySelector("#score");
     this.scoreTarget = document.querySelector("#score-target");
     this.scoreTargetBar = document.querySelector("#score-target-bar");
     this.livesElement = document.querySelector("#lives");
-    this.loadingBar = document.querySelector(".loader");
-    this.statsContainer = document.querySelector("#stats-container");
+
+    this.gameOverScreen = document.querySelector("#game-over-screen");
+    this.gameWonScreen = document.querySelector("#game-won-screen");
+
     this.scored = document.querySelector("#scored");
     this.scored2 = document.querySelector("#scored-2");
     this.table = document.querySelector("#score-table");
+
     // Game Parameters
     this.height = 700;
     this.width = 700;
     this.obstacles = [new Obstacle(this.gameScreen)];
     this.score = 0;
-    this.scoreTargetNumber = Math.floor(Math.random() * 10 + 1);
-    // Math.floor(Math.random() * 10 + 1)
+    this.scoreTargetNumber = Math.floor(Math.random() * 100 + 10);
     this.lives = 3;
     // this.highScore;
     this.gameWon = false;
@@ -43,7 +45,8 @@ class Game {
     this.gameIntervalID = null;
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.counter = 1;
-    // Audio
+
+    // Audio Files
     this.audioTrack = new Audio("/audio/Next Future.mp3");
     this.uiAudio = new Audio("/audio/granted.wav");
     this.droneLoop = new Audio("/audio/droneloop.wav");
@@ -52,7 +55,8 @@ class Game {
     this.dialSound = new Audio("/audio/dialup.flac");
     this.scoreSound = new Audio("/audio/coin.wav");
     this.cheatSound = new Audio("/audio/error.wav");
-    // Player
+
+    // Player Object
     this.player = new Player(
       this.gameScreen,
       10,
@@ -72,7 +76,6 @@ class Game {
 
   advanceToStartScreen() {
     this.nameScreen.style.display = "none";
-    // this.playerNameInput.style.display = "none";
     this.startScreen.style.display = "flex";
     this.innerStartScreen.style.display = "flex";
     this.scoreTarget.style.display = "block";
@@ -81,7 +84,7 @@ class Game {
 
   advanceToGameScreen() {
     this.dialAudio();
-    // Comented out to speed up testing
+    // Comment out the above to speed up testing
     this.innerStartScreen.style.display = "none";
     this.loadingBar.style.display = "inline-block";
     setTimeout(() => {
@@ -95,10 +98,10 @@ class Game {
       this.stopAudio();
       this.start();
       this.backingTrack();
-      // Uncomment after testing
+      // Comment out the above to speed up testing
       this.droneSound();
     }, 3000);
-    // change to 20000 after testing
+    // Adjust the above to speed up testing
   }
 
   // Game Start Logic
@@ -110,26 +113,19 @@ class Game {
     this.gameIntervalID = setInterval(() => {
       this.gameLoop();
       this.counter++;
-      if (this.counter % 50 === 0) {
+      if (this.counter % 30 === 0) {
         this.obstacles.push(new Obstacle(this.gameScreen));
       }
     }, this.gameLoopFrequency);
   }
 
   // Game Loop Logic
-
   gameLoop() {
     this.update();
 
     for (let i = 0; i < this.obstacles.length; i++) {
       const oneObstacle = this.obstacles[i];
-      // let gameScreenLeft = this.gameScreen.getBoundingClientRect().left;
-      // let gameScreenWidth = this.gameScreen.getBoundingClientRect().width
-
       oneObstacle.move();
-      // console.log(gameScreenLeft);
-      // console.log(gameScreenWidth);
-      // console.log(gameScreenLeft - gameScreenWidth);
 
       if (oneObstacle.right < 0) {
         this.obstacles.splice(i, 1);
@@ -148,7 +144,6 @@ class Game {
 
   update() {
     this.player.move();
-    // Check for collision and if an obstacle is still on the screen
     for (let i = 0; i < this.obstacles.length; i++) {
       const obstacle = this.obstacles[i];
       obstacle.move();
@@ -172,6 +167,7 @@ class Game {
     if (Math.random() > 0.2 && this.obstacles.length < 1) {
       this.obstacles.push(new Obstacle(this.gameScreen));
     }
+    // Comment out above to help testing
 
     // Game End Logic
     if (this.lives === 0) {
@@ -185,7 +181,6 @@ class Game {
   }
 
   // End Game Logic
-
   cheat() {
     this.gameIsOver = true;
     this.cheatNoise();
@@ -202,10 +197,7 @@ class Game {
     this.obstacles.forEach((obstacle) => obstacle.element.remove());
 
     this.gameIsOver = true;
-
-    // Hide game screen
     this.gameScreen.style.display = "none";
-    // Show end game screen
     this.gameOverScreen.style.display = "block";
     this.scored.innerText = `${this.score}`;
   }
@@ -220,9 +212,7 @@ class Game {
     // this.score = this.highScore;
     // this.highScoreStorage();
 
-    // Hide game screen
     this.gameScreen.style.display = "none";
-    // Show end game screen
     // this.table.style.display = "flex";
     this.scored2.innerText = `${this.score}`;
     this.gameWonScreen.style.display = "flex";
@@ -256,34 +246,23 @@ class Game {
 
   // Audio Logic
 
-  // Play backing track
-
   backingTrack() {
     this.audioTrack.volume = 0.15;
-    //   Reset to 0.15 outside of testing
     this.audioTrack.loop = true;
     this.audioTrack.play();
   }
 
-  // Play loading audio
-
   dialAudio() {
     this.dialSound.load();
     this.dialSound.volume = 0.15;
-    //   Reset to 0.15 outside of testing
     this.dialSound.play();
   }
 
-  // Play drone (player) sound
-
   droneSound() {
     this.droneLoop.volume = 0.15;
-    //   Reset to 0.15 outside of testing
     this.droneLoop.loop = true;
     this.droneLoop.play();
   }
-
-  // Play Ui noises
 
   uiNoise() {
     this.uiAudio.load();
@@ -314,8 +293,6 @@ class Game {
     this.scoreSound.volume = 0.25;
     this.scoreSound.play();
   }
-
-  // Stop audio noises
 
   stopAudio() {
     this.audioTrack.pause();
