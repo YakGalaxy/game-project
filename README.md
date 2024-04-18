@@ -22,11 +22,13 @@ To play WINDRONE 95, follow these simple steps:
 
 ### Installation
 
-1. Clone the repo:
-   ```bash
+Clone the repo:
+
+```bash
    git clone https://github.com/YakGalaxy/game-project.git
 
     Open the index.html file in your browser to start playing!
+```
 
 ### Controls
 
