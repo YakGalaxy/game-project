@@ -1,47 +1,92 @@
-/* :root {
-} */
+/* Foundations */
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: inherit; 
+  overflow: hidden;
+  /*Forces any element to inherit border-box sizing */
 }
-/* // Forces any element to inherit border-box sizing */
+
 
 html {
-  box-sizing: border-box;
-  /* // Establishes consistent box-sizing model across all elements
-  // i.e. including padding and border within an elements total width and height */
-  width: 100%;
-  height: 100%;
-  /* // Ensures viewport is filled and helps to prevent unwanted margins or padding */
-  font-size: 80%;
-  /* // Scales root font size against browser default */
-}
+  box-sizing: border-box; 
+  /* Establishes consistent box-sizing model across all elements
+  i.e. including padding and border within an elements total width and height */
 
-/* Core Styling */
+  width: 100%;
+  height: 100%; 
+  /* Ensures viewport is filled and helps to prevent unwanted margins or padding */
+
+  font-size: 80%; 
+  /*  Scales root font size against browser default */
+}
 
 body {
   padding: 0;
-  text-align: center;
   width: 100vw;
   height: 100vh;
+
+  text-align: center;
   font-family: "VT323", monospace;
   font-optical-sizing: auto;
   font-style: normal;
-  overflow-x: hidden;
+  text-transform: uppercase;
+
+  overflow: hidden; 
+  /* Comment out above when testing */
+
   background-color: #0000a9;
   color: #aaa8b4;
-  text-transform: uppercase;
-  /* align-items: center; */
+  
 }
 
-#OS {
-  width: 700px;
-  text-align: right;
-  margin: 0 auto;
-  margin-top: 1vh;
+h1 {
+  text-align: center;
+  flex-basis: 100%;
 }
+
+p {
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+/* Flex Classes */
+
+.flex-rw {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+/* Alignment Classes */
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+.width-700 {
+  width: 700px;
+}
+
+/* Styling Classes */
+
+.grey-bar-h1 {
+  background-color: #aaa8b4;
+  color: #0000a9;
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none;
+}
+
+/* Primary Containers */
 
 #container {
   display: flex;
@@ -49,51 +94,40 @@ body {
   justify-content: center;
   align-items: center;
   align-content: center;
+
   width: 700px;
   height: 700px;
   margin: 10vh auto 0;
+
   border: 0.5vw solid #aaa8b4;
 }
 
 #container h1 {
-  text-align: left;
-  flex-basis: 100%;
 }
 
+#OS {
+  text-align: right;
+  margin-top: 1vh;
+}
+
+/* Splash Screen */
+
 #splash-screen {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  /* display: none; */
 }
 
 #splash-screen h1 {
   font-size: 5rem;
-  width: 100%;
   text-align: center;
 }
 
+/* Name Screen */
+
 #name-screen {
   display: none;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
 }
 
 #name-screen h1 {
   font-size: 3rem;
-  /* width: 100%; */
-  text-align: center;
-  background-color: #aaa8b4;
-  color: #0000a9;
-}
-
-#name-screen p {
-  font-size: 1.5rem;
-  width: 100%;
 }
 
 #player-name-input {
@@ -111,8 +145,6 @@ body {
   cursor: pointer;
   width: 25vw;
   margin: 0.67em 0;
-  /* border-radius: 15px; */
-  /* box-shadow: 0 9px #5f5f5f; */
 }
 
 #player-name-input:hover {
@@ -121,42 +153,13 @@ body {
   background-color: #aaa8b4;
 }
 
-#player-name-input:active {
-  color: black;
-  background-color: #aaa8b4;
-}
+/* CSS Loading Bar */
 
-/* #player-name-input-wrapper {
-  position: relative;
-} */
-
-/* input {
-  width: 10vw;
-  padding: 12px 20px;
-} */
-
-/* #player-name-input-icon {
-  display: none;
-  position: absolute;
-  top: 1.5rem;
-  right: 3rem;
-  font-size: larger;
-  font-weight: bolder;
-} */
-
-/* #player-name:active {
-  background-color: ##0000A9;
-  box-shadow: 0 0.5vh white;
-  transform: translateY(4px);
-} */
-
-/* HTML: <div class="loader"></div> */
 .loader {
   display: none;
   position: relative;
   width: 100%;
   height: 50%;
-  z-index: 1;
   background: linear-gradient(#aaa8b4 0 0) 0/0% no-repeat #0000a9;
   animation: l1 3s linear;
 }
@@ -166,39 +169,21 @@ body {
   }
 }
 
+/* Start Screen */
+
 #start-screen {
   display: none;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
   width: 700px;
   height: 700px;
 }
 
 #inner-start-screen {
   display: none;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
 }
 
 #player-name-h1 {
-  color: #0000a9;
-  background-color: #aaa8b4;
   font-size: 3rem;
-  width: 100%;
-  text-align: center !important;
 }
-
-/* #splash-screen h1 {
-  font-size: 5rem;
-  
-  text-align: center;
-} */
 
 #inner-start-screen h2 {
   flex-basis: 100%;
@@ -213,21 +198,16 @@ body {
 #score-target {
   display: inline-block !important;
   font-size: 2rem;
+  overflow: visible;
 }
+
+/* Game Screen */
 
 #game-screen {
   display: none;
-  /* display: flex; */
-  flex-flow: row wrap;
-  /* overflow: hidden; */
   position: absolute;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
   background-image: url(https://yakgalaxy.github.io/game-project/images/background.png);
   background-size: cover;
-  width: 700px;
-  height: 700px;
   animation: slide 3s linear infinite;
 }
 
@@ -243,9 +223,7 @@ body {
   }
 }
 
-.show {
-  display: block !important;
-}
+/* Top Game Screen UI */
 
 #stats-container {
   display: none;
@@ -270,7 +248,6 @@ body {
 
 #file-button {
   margin: 1%;
-
   border: #0000a9 5px solid;
   background-color: #aaa8b4;
 }
@@ -279,40 +256,22 @@ body {
   cursor: pointer;
 }
 
-.hide {
-  display: none;
-}
-
 #dropdown-content {
   display: none;
   position: absolute;
   left: 0;
   top: 7%;
-  /* align-self: flex-start;
-  flex-direction: column; */
-  /* width: 100%; */
   background-color: #f1f1f1;
-  /* min-width: 160px; */
-  /* z-index: 1; */
+  z-index: 1;
 }
 
 #dropdown-content a {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   color: black;
   background-color: #aaa8b4;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  z-index: 2;
 }
-
-/* #dropdown-content li {
-  position: relative;
-  width: 100%;
-  text-align: center;
-} */
 
 #dropdown-content a:hover {
   color: #aaa8b4;
@@ -325,43 +284,31 @@ body {
 }
 
 #health-bar {
-  /* padding-left: 50%; */
-  /* align-self: flex-end; */
   width: 138px;
   height: 56px;
 }
 
+/* Game Over Screen */
+
 #game-over-screen {
   display: none;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
   width: 700px;
 }
 
+/* Cheat Screen */
+
 #cheat-screen {
   display: none;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
   width: 700px;
   height: 700px;
   background-size: contain;
   background-image: url(/images/virus.gif);
 }
 
+/* Game Won Screen */
+
 #game-won-screen {
   display: none;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
-  width: 700px;
 }
 
 #game-won-screen h2 {
@@ -370,139 +317,58 @@ body {
 
 #score-table {
   display: none;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
   border: 1px solid #aaa8b4;
 }
 
 #score-h1 {
-  color: #0000a9;
-  background-color: #aaa8b4;
   font-size: 3rem;
-  width: 100%;
-  text-align: center !important;
 }
 
-.left-align {
-  text-align: left;
-}
+/* Buttons */
 
-#start-button {
+.button {
   padding-left: 2vw;
   padding-right: 2vw;
 
   text-transform: uppercase;
   font-size: 2rem;
-  border-radius: 0px;
-  height: 6vh;
-  border: 0.25vw solid#AAA8B4;
-  transition: 0.3s;
 
-  background-color: #aaa8b4;
-  cursor: pointer;
-  /* border-radius: 15px; */
-  box-shadow: 0 9px #5f5f5f;
   width: 25vw;
-  margin: 0.67em 0;
-}
-
-#start-button:hover {
-  color: #aaa8b4;
-  background-color: #0000a9;
-}
-
-#start-button:active {
-  background-color: #0000a9;
-  box-shadow: 0 0.5vh white;
-  transform: translateY(4px);
-}
-
-#activate-button {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  text-transform: uppercase;
-  font-size: 2rem;
-  border-radius: 0px;
   height: 6vh;
-  border: 0.25vw solid #aaa8b4;
+
+  border: 0.25vw solid#AAA8B4;
+  border-radius: 0px;
+  
   transition: 0.3s;
+  cursor: pointer;
+
   color: black;
   background-color: #aaa8b4;
-  cursor: pointer;
-  /* border-radius: 15px; */
-  box-shadow: 0 9px #343434;
+  box-shadow: 0 9px #5f5f5f;
+  
   margin: 0.67em 0;
 }
 
-#activate-button:hover {
+.button:hover {
   color: #aaa8b4;
   background-color: #0000a9;
 }
 
-#activate-button:active {
-  background-color: #0000a9;
+.button:active {
   box-shadow: 0 0.5vh black;
   transform: translateY(4px);
 }
 
+#start-button {
+}
+
+#activate-button {
+}
+
 #restart-button {
-  padding-left: 2vw;
-  padding-right: 2vw;
-
-  text-transform: uppercase;
-  font-size: 2rem;
-  border-radius: 0px;
-  height: 6vh;
-  border: 0.25vw solid#AAA8B4;
-  transition: 0.3s;
-
-  background-color: #aaa8b4;
-  cursor: pointer;
-  /* border-radius: 15px; */
-  box-shadow: 0 9px #5f5f5f;
-  width: 25vw;
-  margin: 0.67em 0;
-}
-
-#restart-button:hover {
-  color: #aaa8b4;
-  background-color: #0000a9;
-}
-
-#restart-button:active {
-  background-color: #0000a9;
-  box-shadow: 0 0.5vh white;
-  transform: translateY(4px);
 }
 
 #restart-button-2 {
-  padding-left: 2vw;
-  padding-right: 2vw;
-
-  text-transform: uppercase;
-  font-size: 2rem;
-  border-radius: 0px;
-  height: 6vh;
-  border: 0.25vw solid#AAA8B4;
-  transition: 0.3s;
-
-  background-color: #aaa8b4;
-  cursor: pointer;
-  /* border-radius: 15px; */
-  box-shadow: 0 9px #5f5f5f;
-  width: 25vw;
-  margin: 0.67em 0;
 }
 
-#restart-button-2:hover {
-  color: #aaa8b4;
-  background-color: #0000a9;
-}
 
-#restart-button-2:active {
-  background-color: #0000a9;
-  box-shadow: 0 0.5vh white;
-  transform: translateY(4px);
-}

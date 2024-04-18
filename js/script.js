@@ -1,5 +1,5 @@
 window.onload = function () {
-  // Elements
+  // DOM Elements
   const activateButton = document.getElementById("activate-button");
   const playerNameInput = document.getElementById("player-name-input");
   const startButton = document.getElementById("start-button");
@@ -26,78 +26,47 @@ window.onload = function () {
   // Initilizations
   let game;
 
-
-  // Splash Screen Listener
+  // Splash Screen
   activateButton.addEventListener("click", function () {
     game = new Game();
     game.advanceToNameScreen();
     game.uiNoise();
   });
 
-  // Event listener for the player-name-input-icon on the name-screen
+  // Enable Player to Enter Name and Press Enter to Continue
   playerNameInput.addEventListener("keydown", (e) => {
     const key = e.code;
 
     if (key === "Enter") {
-      game.playerNameStorage(); 
-      // console.log(localStorage.getItem("playerName"));
-      // playerNameInputValue = "";
+      game.playerNameStorage();
       game.uiNoise();
       game.advanceToStartScreen();
     }
   });
 
-  // Event listener for the start-button (activate your drone) on the start-screen
+  // Start Button
   startButton.addEventListener("click", function () {
     game.uiNoise();
     game.advanceToGameScreen();
   });
 
-  // Event listener for the file-button on the game screen
+  // File Button
   fileButton.addEventListener("click", function () {
-    // fileButton.classList.toggle("show");
     fileDropdown.classList.toggle("show");
-    // fileDropdown.classList.add("show");
-    // fileDropdown.classList.add("show");
   });
 
-  // Restarting the Game
-
-  // Add an event listener to the restart buttons
-  restartButton.addEventListener("click", function () {
-    game.uiNoise();
-    restartGame();
-  });
-
-  restartButton2.addEventListener("click", function () {
-    game.uiNoise();
-    restartGame();
-  });
-
-  // Cheat button
-
+  // Cheat Button
   cheatButton.addEventListener("click", function () {
     game.cheat();
   });
 
-
-
-  // Add an event listener to the restart dropdown link
+  // Restart Menu Dropdown
   restartDropdownLink.addEventListener("click", function () {
     game.uiNoise();
     restartGame();
   });
 
-  // The function that reloads the page to start a new game
-  function restartGame() {
-    setTimeout(() => {
-      location.reload();
-      // this.dialAudio()
-    }, 1000);
-  }
-
-  // Player Keyboard tracking
-
+  // Player Keyboard Tracking
   document.addEventListener("keyup", () => {
     game.player.directionX = 0;
     game.player.directionY = 0;
@@ -112,27 +81,90 @@ window.onload = function () {
       "ArrowUp",
       "ArrowRight",
       "ArrowDown",
+      "w",
+      "a",
+      "s",
+      "d",
     ];
 
-    // Check if the pressed key is in the possibleKeystrokes array
-    if (possibleKeystrokes.includes(key)) {
+    if (possibleKeystrokes.includes(key) & Game.boost !== true) {
       event.preventDefault();
 
-      // Update player's directionX and directionY based on the key pressed
       switch (key) {
         case "ArrowLeft":
-          game.player.directionX = -5;
+          game.player.directionX = -10;
           break;
         case "ArrowUp":
-          game.player.directionY = -5;
+          game.player.directionY = -10;
           break;
         case "ArrowRight":
-          game.player.directionX = 5;
+          game.player.directionX = 10;
           break;
         case "ArrowDown":
-          game.player.directionY = 5;
+          game.player.directionY = 10;
+          break;
+        case "w":
+          game.player.directionY = -10;
+          break;
+        case "a":
+          game.player.directionX = -10;
+          break;
+        case "s":
+          game.player.directionY = 10;
+          break;
+        case "d":
+          game.player.directionX = 10;
           break;
       }
     }
+
+    // if (possibleKeystrokes.includes(key) & Game.boost === true) {
+    //   event.preventDefault();
+
+    //   switch (key) {
+    //     case "ArrowLeft":
+    //       game.player.directionX = -20;
+    //       break;
+    //     case "ArrowUp":
+    //       game.player.directionY = -20;
+    //       break;
+    //     case "ArrowRight":
+    //       game.player.directionX = 20;
+    //       break;
+    //     case "ArrowDown":
+    //       game.player.directionY = 20;
+    //       break;
+    //     case "w":
+    //       game.player.directionY = -20;
+    //       break;
+    //     case "a":
+    //       game.player.directionX = -20;
+    //       break;
+    //     case "s":
+    //       game.player.directionY = 20;
+    //       break;
+    //     case "d":
+    //       game.player.directionX = 20;
+    //       break;
+    //   }
+    // }
+  }
+
+  // Restart Game Logic
+  restartButton.addEventListener("click", function () {
+    game.uiNoise();
+    restartGame();
+  });
+
+  restartButton2.addEventListener("click", function () {
+    game.uiNoise();
+    restartGame();
+  });
+
+  function restartGame() {
+    setTimeout(() => {
+      location.reload();
+      // this.dialAudio()
+    }, 1000);
   }
 };
