@@ -55,19 +55,21 @@ Project Link: https://github.com/YakGalaxy/game-project
 
 ### Acknowledgements
 
-- Some amazing free assets from itch.io including;
--- https://free-game-assets.itch.io/free-drones-pack-pixel-art
--- https://free-game-assets.itch.io/free-city-backgrounds-pixel-art 
--- https://free-game-assets.itch.io/free-truck-constructor-pixel-art
+Some amazing free assets from itch.io including;
 
-- Great free sounds via https://freesound.org including;
--- https://freesound.org/people/Kenneth_Cooney/sounds/609335/
--- https://freesound.org/people/Breviceps/sounds/450616/ 
--- https://freesound.org/people/ProjectsU012/sounds/341695/
--- https://freesound.org/people/Yoshicakes77/sounds/703543/
--- https://freesound.org/people/thearchiveguy99/sounds/658932/
--- https://freesound.org/people/MATRIXXX_/sounds/404151/
--- https://freesound.org/people/myfox14/sounds/382310/
--- https://freesound.org/people/stumpbutt/sounds/629664/
--- https://freesound.org/people/grauxonen/sounds/679693/
+- https://free-game-assets.itch.io/free-drones-pack-pixel-art
+- https://free-game-assets.itch.io/free-city-backgrounds-pixel-art 
+- https://free-game-assets.itch.io/free-truck-constructor-pixel-art
+
+Great free sounds via https://freesound.org including;
+
+- https://freesound.org/people/Kenneth_Cooney/sounds/609335/
+- https://freesound.org/people/Breviceps/sounds/450616/ 
+- https://freesound.org/people/ProjectsU012/sounds/341695/
+- https://freesound.org/people/Yoshicakes77/sounds/703543/
+- https://freesound.org/people/thearchiveguy99/sounds/658932/
+- https://freesound.org/people/MATRIXXX_/sounds/404151/
+- https://freesound.org/people/myfox14/sounds/382310/
+- https://freesound.org/people/stumpbutt/sounds/629664/
+- https://freesound.org/people/grauxonen/sounds/679693/
 
